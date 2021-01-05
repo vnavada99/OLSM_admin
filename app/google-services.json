@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "229411461338",
+    "project_id": "olsm-admin",
+    "storage_bucket": "olsm-admin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229411461338:android:836f554e765ac602632de3",
+        "android_client_info": {
+          "package_name": "com.example.olsm_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229411461338-46htiei868395c2pd7vumfogd9imrk77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTylcUNpJRcavARy-b7bBXqjd2vbyr3Ws"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229411461338-46htiei868395c2pd7vumfogd9imrk77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
