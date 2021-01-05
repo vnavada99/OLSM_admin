@@ -15,11 +15,20 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.olsm_admin.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;
+    FirebaseAuth mAuth;
+    private DatabaseReference mDatabase;
 
+    TextView fnam;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         galleryViewModel =
@@ -39,6 +48,22 @@ public class GalleryFragment extends Fragment {
                 Toast.makeText(getActivity(),"Add Instructor from here",Toast.LENGTH_LONG).show();
             }
         });
+        fnam = root.findViewById(R.id.fname);
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("OLSM").child("Instructor");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String fname = snapshot.child("0001").child("name").getValue().toString();
+                fnam.setText(fname);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         return root;
     }
 }
