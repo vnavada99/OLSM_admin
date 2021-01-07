@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_main_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.OLSM_admin">
+        <activity android:name=".courses_one"></activity>
+        <activity android:name=".instructor_view" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

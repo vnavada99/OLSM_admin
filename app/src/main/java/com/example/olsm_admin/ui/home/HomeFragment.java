@@ -12,14 +12,34 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.olsm_admin.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+
+import Adapters.CourseAdapter;
+import Adapters.ProgrammingAdapter;
+import Instructor.instructor;
+import courses.course;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
+
+    private DatabaseReference mDatabase;
+    private ArrayList<course> in = new ArrayList<>();
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -39,6 +59,34 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity(),"Add Courses from here",Toast.LENGTH_LONG).show();
             }
         });
+
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("OLSM").child("courses");
+        mDatabase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot snapshot) {
+                for(DataSnapshot ite : snapshot.getChildren()){
+                    String name,level,desc,batch,id,img;
+                    id = ite.getKey().toString();
+                    name = ite.child("name").getValue().toString();
+                    desc = ite.child("description").getValue().toString();
+                    level = ite.child("level").getValue().toString();
+                    img = ite.child("img").getValue().toString();
+                    batch = ite.child("batch").getValue().toString();
+                    course ip = new course(id,name,level,desc,batch,img);
+                    in.add(ip);
+                }
+                Toast.makeText(getActivity(),in.toString(),Toast.LENGTH_LONG).show();
+                RecyclerView rec = root.findViewById(R.id.c_recycler);
+                rec.setAdapter(new CourseAdapter(in));
+                rec.setLayoutManager(new LinearLayoutManager(getActivity()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         return root;
     }
 }
