@@ -1,5 +1,6 @@
 package com.example.olsm_admin.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import Adapters.CourseAdapter;
 import Adapters.ProgrammingAdapter;
 import Instructor.instructor;
+import courses.add_course;
 import courses.course;
 
 public class HomeFragment extends Fragment {
@@ -39,6 +41,8 @@ public class HomeFragment extends Fragment {
 
     private DatabaseReference mDatabase;
     private ArrayList<course> in = new ArrayList<>();
+
+    private FloatingActionButton fab;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -52,11 +56,11 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        FloatingActionButton fab = root.findViewById(R.id.fab);
+         fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"Add Courses from here",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getActivity(), add_course.class));
             }
         });
 
@@ -75,7 +79,7 @@ public class HomeFragment extends Fragment {
                     course ip = new course(id,name,level,desc,batch,img);
                     in.add(ip);
                 }
-                Toast.makeText(getActivity(),in.toString(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity(),in.toString(),Toast.LENGTH_LONG).show();
                 RecyclerView rec = root.findViewById(R.id.c_recycler);
                 rec.setAdapter(new CourseAdapter(in));
                 rec.setLayoutManager(new LinearLayoutManager(getActivity()));
