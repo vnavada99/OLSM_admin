@@ -34,8 +34,9 @@ import Adapters.ProgrammingAdapter;
 import Instructor.instructor;
 import courses.add_course;
 import courses.course;
+import courses.view_course;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
 
     private HomeViewModel homeViewModel;
 
@@ -81,13 +82,12 @@ public class HomeFragment extends Fragment {
                 }
                 //Toast.makeText(getActivity(),in.toString(),Toast.LENGTH_LONG).show();
                 RecyclerView rec = root.findViewById(R.id.c_recycler);
-                rec.setAdapter(new CourseAdapter(in));
+                rec.setAdapter(new CourseAdapter(in,getContext()));
                 rec.setLayoutManager(new LinearLayoutManager(getActivity()));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
