@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     FirebaseAuth mAuth;
-    String email = "cms76892@bcaoo.com";
-    String password = "cms76892@bcaoo.com";
+    String email = "vinunav1999@gmail.com";
+    String password = "Hellotcet@123";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

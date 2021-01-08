@@ -47,31 +47,51 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.446" />
 
-        <EditText
-            android:id="@+id/c_batch"
+
+        <TextView
             android:layout_width="250dp"
             android:layout_height="45dp"
-            android:ems="10"
-            android:hint="Batch"
-            android:layout_gravity="center"
+            android:text="Level"
             android:layout_marginTop="30dp"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/customborder"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.446" />
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            android:paddingLeft="95dp"/>
 
-        <Spinner
-            android:id="@+id/spinner_ins"
-            android:autofillHints="Instructors"
+        <RadioGroup
             android:layout_width="250dp"
+            android:id="@+id/radio"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="0dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:paddingLeft="45dp">
+
+            <RadioButton android:id="@+id/level1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I" />
+
+            <RadioButton
+                android:id="@+id/level2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="II" />
+            <RadioButton
+                android:id="@+id/level3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="III" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/upload_img"
+            android:layout_width="250dp"
+            android:layout_height="45dp"
             android:background="@drawable/customborder"
-            android:layout_height="45dp" />
+            android:textColor="#162a73"
+            android:text="Upload Image"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"/>
 
         <Button
             android:id="@+id/addC"

@@ -71,11 +71,11 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot ite : snapshot.getChildren()){
                     String name,level,desc,batch,id,img;
                     id = ite.getKey().toString();
-                    name = ite.child("name").getValue().toString();
-                    desc = ite.child("description").getValue().toString();
-                    level = ite.child("level").getValue().toString();
-                    img = ite.child("img").getValue().toString();
-                    batch = ite.child("batch").getValue().toString();
+                    name = ite.child("c_name").getValue().toString();
+                    desc = ite.child("c_desc").getValue().toString();
+                    level = ite.child("c_level").getValue().toString();
+                    img = ite.child("c_img").getValue().toString();
+                    batch = ite.child("c_batch").getValue().toString();
                     course ip = new course(id,name,level,desc,batch,img);
                     in.add(ip);
                 }
