@@ -23,6 +23,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 import courses.course;
+import courses.scrolling_view_course;
 import courses.view_course;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseViewHolder> {
@@ -43,7 +44,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
             @Override
             public void onClick(View view) {
                 //Toast.makeText(context,v.name.getText().toString(),Toast.LENGTH_LONG).show();
-                Intent i = new Intent(context,view_course.class);
+                Intent i = new Intent(context, scrolling_view_course.class);
                 i.putExtra("c_id",v.id.getText().toString());
                 context.startActivity(i);
             }

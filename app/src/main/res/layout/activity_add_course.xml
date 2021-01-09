@@ -8,6 +8,8 @@
     android:background="#6d8af2"
     tools:layout_editor_absoluteY="81dp">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +23,7 @@
             android:hint="Course Name"
             android:background="@drawable/customborder"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="90dp"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

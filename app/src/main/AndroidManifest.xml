@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_main_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.OLSM_admin">
-        <activity android:name="courses.view_course"></activity>
+        <activity
+            android:name="courses.scrolling_view_course"
+            android:label="@string/title_activity_scrolling_view_course"
+            android:theme="@style/Theme.OLSM_admin.NoActionBar"></activity>
+        <activity android:name="courses.view_course" />
         <activity android:name="courses.add_course" />
         <activity android:name=".courses_one" />
         <activity android:name=".instructor_view" />

@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/customborder"
+    android:clickable="true"
+    android:onClick="@color/white"
     tools:context=".courses_one">
 
     <ImageView
