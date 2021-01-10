@@ -30,9 +30,12 @@ import com.google.firebase.storage.StorageReference;
 
 import org.jetbrains.annotations.NotNull;
 
+import assign_lecture.select_date;
+
 public class scrolling_view_course extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    private TextView c_name,c_desc,c_level,c_batch,c_id;
+    private TextView c_desc,c_level,c_batch,c_id;
+    private String c_name;
     ImageView c_img;
     FirebaseStorage storage;
     @Override
@@ -43,24 +46,20 @@ public class scrolling_view_course extends AppCompatActivity {
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 
-        c_name = findViewById(R.id.c_name);
+        //c_name = findViewById(R.id.c_name);
         c_desc = findViewById(R.id.c_desc);
         c_id = findViewById(R.id.c_id);
         c_batch = findViewById(R.id.c_batch);
         c_level = findViewById(R.id.c_level);
         c_img = findViewById(R.id.c_img);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
 
         Intent i = getIntent();
         String id = i.getStringExtra("c_id");
+        //Toast.makeText(scrolling_view_course.this,id.toString(),Toast.LENGTH_LONG).show();
+
+
         mDatabase = FirebaseDatabase.getInstance().getReference().child("OLSM").child("courses");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -68,6 +67,7 @@ public class scrolling_view_course extends AppCompatActivity {
                 //Toast.makeText(scrolling_view_course.this,snapshot.child(id).child("c_img").getValue().toString(),Toast.LENGTH_LONG).show();
                 setImage(snapshot.child(id).child("c_img").getValue().toString());
                 toolBarLayout.setTitle(snapshot.child(id).child("c_name").getValue().toString());
+                c_name = snapshot.child(id).child("c_name").getValue().toString();
                 c_desc.setText(snapshot.child(id).child("c_desc").getValue().toString());
                 c_id.setText(id);
                 c_batch.setText(snapshot.child(id).child("c_batch").getValue().toString());
@@ -77,6 +77,18 @@ public class scrolling_view_course extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(scrolling_view_course.this, select_date.class);
+                i.putExtra("c_id",id);
+                i.putExtra("c_name",c_name);
+                startActivity(i);
             }
         });
     }

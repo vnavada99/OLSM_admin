@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment{
             public void onChanged(@Nullable String s) {
             }
         });
-         fab = root.findViewById(R.id.fab);
+        fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
