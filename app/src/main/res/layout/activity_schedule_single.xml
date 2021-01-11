@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".schedule_single"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/customborder">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="25dp"
+        android:textColor="#5032a8"
+        android:text="Course Name :"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/c_name"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="25dp"
+        android:textColor="#5032a8"
+        android:text="Date :"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/date"
+        android:layout_marginLeft="30dp"
+        android:textSize="25dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#5032a8"
+        android:textSize="25dp"
+        android:text="Name of the Instructor :"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="25dp"
+        android:id="@+id/i_name"/>
+</LinearLayout>

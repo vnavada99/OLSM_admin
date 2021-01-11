@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_main_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.OLSM_admin">
-        <activity android:name="Instructor.select_instructor"></activity>
+        <activity android:name=".schedule_single"></activity>
+        <activity android:name="Instructor.select_instructor" />
         <activity android:name="assign_lecture.select_date" />
         <activity
             android:name="courses.scrolling_view_course"

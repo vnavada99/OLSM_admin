@@ -48,13 +48,6 @@ public class GalleryFragment extends Fragment {
             public void onChanged(@Nullable String s) {
             }
         });
-        FloatingActionButton fab = root.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getActivity(),"Add Instructor from here",Toast.LENGTH_LONG).show();
-            }
-        });
         mDatabase = FirebaseDatabase.getInstance().getReference().child("OLSM").child("Instructor");
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
